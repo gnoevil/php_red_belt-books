@@ -1,33 +1,38 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require_once('main.php');
+class Books extends CI_Controller {
 
-class Books extends Main {
+	public function index()
+	{
+		$this->load->view('books');
+	}
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->Model('User');
-		$this->load->Model('Review');
-		$this->load->Model('Book');
-		if(! $this->is_login())
-		{
-			$this->session->set_flashdata("error_message","Please login");
-			redirect(base_url('/'));
-		}
-		$this->load->Model("Author");
+		$this->output->enable_profiler(TRUE);
+		$this->load->model('Book');
+		//$this->load->model('Review');
+
 	}
 
-	public function index()
+	public function show($id)
 	{
-		$recent_book_reviews = $this->Review->get_all_reviews();
-		$all_books = $this->Book->get_all_books();
-		$all_users = $this->User->get_all_users();
-		$this->load->view("Books/books", array('current_user'   => $this->current_user,
-												   'recent_reviews' => $recent_book_reviews,
-												   'all_books'      => $all_books,
-												   'all_users'      => $all_users
-												   )
-						 );
+		$book_display = $this->Book->get_book_by_id($id);
 	}
+	public function add()
+	{
+		$book_info['title'] = $this->input->post('title');
+		$book_info['author_name'] = $this->input->post('author_name');
+		$review_info['rating'] = $this->input->post('rating');
+		$review_info['review'] = $this->input->post('review');
+        $add_book = $this->Book->add_book($book_info);
+        //$add_review = $this->Review->add_review($review_info);
+
+        redirect("/books");
+		
+	}
+
+
+}
