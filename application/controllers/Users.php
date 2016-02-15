@@ -1,11 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users extends CI_Controller {
+require_once('main.php');
 
-
+class Users extends Main
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->Model("User");
+		//$this->output->enable_profiler();
+	}
 	public function index()
 	{
-		$this->load->view('Users/home.php');
+		if($this->is_login())
+		{
+			redirect(base_url('Books/index'));
+		}
+		else
+		{
+			$this->load->view('Users/home');
+		}
+
 	}
+
 }
