@@ -1,4 +1,3 @@
-<?php $this->load->view('partials/header') ?>
 <?php $this->load->view('partials/navigation') ?>
 <script type="text/javascript">
 	$(document).ready(function(){

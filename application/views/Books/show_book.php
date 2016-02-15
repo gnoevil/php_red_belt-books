@@ -1,3 +1,4 @@
+<?php $this->load->view('partials/navigation') ?>
 <h1 class="page-header"> Reviews by Book</h1>
 <div class="row">
 	<div class="col-md-5">
