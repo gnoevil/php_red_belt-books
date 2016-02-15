@@ -16,14 +16,14 @@
 <?php 				}
 					else
 					{	?>
-								<li><a href="/">Home</a></li>
+								<li><a href="/books/index">Home</a></li>
 <?php 				}	?>
 							</ul>
 
 							<ul class="nav pull-right">
 <?php 				if(isset($is_logged_in) && $is_logged_in)
 					{	?>
-								<li><a href="/user/logout">Log off</a></li>
+								<li><a href="/">Log off</a></li>
 <?php 				}
 					else
 					{	?>
