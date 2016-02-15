@@ -1,0 +1,28 @@
+body {
+    background-color: #858585;
+}
+.container {
+  min-width: 80%;
+  height: auto;
+}
+.add_course {
+  min-width: 50%;
+  display: block;
+}
+  input[type="text"] {
+    width: 250px;
+    display: block;
+  }
+    textarea {
+      width: 250px;
+      display: block;
+    }
+      input[type="submit"]{
+        background: linear-gradient(#454545,#252525,#454545);
+        color: white;
+      }
+.course_list {
+  min-width: 50%;
+  min-height: 400px;
+  display: block;
+}
